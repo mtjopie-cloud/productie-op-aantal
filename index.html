@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="description" content="App om het stopuur doseren in de bakkerij te berekenen." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Doseren Bakkerij</title>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Bakkerijplanning</p>
+          <h1>Einduur doseren berekenen</h1>
+          <p class="hero-text">Vul het artikelnummer, de huidige kartonstand en het doel in. De app berekent hoeveel productietijd nog nodig is en wanneer het doseren van deeg mag stoppen.</p>
+        </div>
+        <button id="resetBtn" class="reset-btn">Wissen</button>
+      </section>
+
+      <section class="layout">
+        <div class="card">
+          <h2>📦 Gegevens productie</h2>
+          <div class="form-grid">
+            <label>
+              <span>Artikelnummer</span>
+              <input id="artikel" inputmode="numeric" placeholder="bv. 3003" />
+            </label>
+            <label>
+              <span>Huidig uur / start berekening</span>
+              <input id="startTijd" type="time" readonly />
+            </label>
+            <label>
+              <span>Kartons gemaakt op dit moment</span>
+              <input id="huidigeKartons" inputmode="decimal" placeholder="bv. 1240" />
+            </label>
+            <label>
+              <span>Te behalen kartons</span>
+              <input id="doelKartons" inputmode="decimal" placeholder="bv. 2200" />
+            </label>
+          </div>
+
+          <div class="sub-card">
+            <h3>⚙️ Doorlooptijd bakkerij tot verpakking</h3>
+            <label>
+              <span>Doorlooptijd in minuten</span>
+              <input id="doorlooptijd" inputmode="decimal" value="0" placeholder="bv. 90" />
+            </label>
+          </div>
+
+          <div id="warning" class="warning hidden">
+            <div class="warning-title">Artikel niet gevonden</div>
+            <div>Controleer het artikelnummer of zoek het product onderaan in de lijst.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>🕒 Resultaat</h2>
+          <div class="result-box">
+            <div class="muted-light">Stop doseren deeg</div>
+            <div id="stopDoseren" class="result-time">--:--</div>
+            <div class="muted-light">Dit is het laatste uur waarop de bakkerij nog deeg moet doseren om het verpakkingsdoel te halen.</div>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-card"><span>Product</span><strong id="productNaam">Nog geen geldig artikel</strong></div>
+            <div class="result-card"><span>Kartons per uur</span><strong id="kph">-</strong></div>
+            <div class="result-card"><span>Nog te maken</span><strong id="resterendeKartons">-</strong></div>
+            <div class="result-card"><span>Productietijd nodig</span><strong id="productietijd">-</strong></div>
+            <div class="result-card"><span>Verpakking klaar rond</span><strong id="klaarVerpakking">-</strong></div>
+            <div class="result-card"><span>Doorlooptijd</span><strong id="doorlooptijdResultaat">0 min</strong></div>
+          </div>
+
+          <p class="formula">Formule: resterende kartons ÷ kartons per uur × 60 = resterende productieminuten. Daarna: verwacht klaaruur verpakking - doorlooptijd = stopuur doseren.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="search-header">
+          <div>
+            <h2>Product zoeken</h2>
+            <p>Zoek op artikelnummer of productnaam en klik om te selecteren.</p>
+          </div>
+          <input id="zoekterm" class="search" placeholder="Zoeken..." />
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Artikel</th><th>Productnaam</th><th class="right">Kartons/uur</th></tr>
+            </thead>
+            <tbody id="productTabel"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
