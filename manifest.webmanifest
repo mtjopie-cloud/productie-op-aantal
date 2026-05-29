@@ -1,6 +1,6 @@
 {
-  "name": "Doseren Bakkerij",
-  "short_name": "Doseren",
+  "name": "op aantal",
+  "short_name": "op aantal",
   "description": "App om het stopuur doseren in de bakkerij te berekenen.",
   "start_url": "./",
   "scope": "./",
