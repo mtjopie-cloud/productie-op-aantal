@@ -1,0 +1,12 @@
+OP AANTAL — automatische artikelupdates
+
+Upload alle bestanden, inclusief artikelen.json, in de ROOT van je bestaande GitHub repository productie-op-aantal.
+
+Vanaf deze versie voeg je nieuwe artikelen uitsluitend toe in artikelen.json.
+De gegevens zijn objecten zoals:
+  {"naam": "Mini Madeleine 14 stuks", "artikel": "22005", "kph": 200}
+Voeg een komma tussen objecten toe en behoud de buitenste vierkante haken.
+
+Bij het openen controleert de app via internet op nieuwe artikelen. Zonder internet wordt de laatst opgehaalde lijst gebruikt. Collega’s hoeven de app niet opnieuw te installeren.
+
+Let op: deze eerste overgang vanaf de oudere service worker kan op sommige toestellen een extra herstart vereisen.
