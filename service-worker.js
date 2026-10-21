@@ -1,4 +1,4 @@
-const CACHE_NAME = "doseren-bakkerij-v1";
+const CACHE_NAME = 'op-aantal-v4';
 const APP_FILES = [
   "./",
   "./index.html",

@@ -49,6 +49,7 @@ const producten = [
   ["Carré Confituur 1st x 6 (x9)", "116", 80],
   ["Mini Madeleine 1st (x60)", "2005", 360],
   ["Mini Madeleine 1st x 7 (x10)", "12005", 310],
+  ["Mini Madeleine 14 stuks", "22005", 200],
   ["Madeleine 1st (x60)", "4", 390],
   ["SDA Madeleine 1st (x300)", "1999", 78],
   ["SDA Madeleine 1st (x300) Arioso", "84998", 78],
